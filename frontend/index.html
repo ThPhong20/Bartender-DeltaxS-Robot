@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DeltaX Bartender</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <h1>DeltaX Bartender</h1>
+      <div class="connection-badge" id="connectionBadge">
+        <span class="conn-dot"></span>
+        <span id="connectionLabel">Offline</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Panel 1: Drink Selection -->
+    <section class="panel panel-drinks" id="drinkPanel">
+      <h2>Drink Menu</h2>
+      <div class="drink-grid" id="drinkGrid"></div>
+    </section>
+
+    <div class="right-col">
+
+      <!-- Panel 2: Cup Size -->
+      <section class="panel panel-size" id="sizePanel">
+        <h2>Cup Size</h2>
+        <div class="size-options">
+          <button class="size-btn" data-size="S">
+            <span class="cup-svg small">&#x1F964;</span>
+            <span class="size-label">Small</span>
+            <span class="size-oz">8 oz</span>
+          </button>
+          <button class="size-btn selected" data-size="M">
+            <span class="cup-svg medium">&#x1F964;</span>
+            <span class="size-label">Medium</span>
+            <span class="size-oz">12 oz</span>
+          </button>
+          <button class="size-btn" data-size="L">
+            <span class="cup-svg large">&#x1F964;</span>
+            <span class="size-label">Large</span>
+            <span class="size-oz">16 oz</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Panel 3: Status -->
+      <section class="panel panel-status" id="statusPanel">
+        <h2>Robot Status</h2>
+        <div class="status-body">
+          <div class="status-row" id="statusIndicator">
+            <div class="status-dot" id="statusDot"></div>
+            <span class="status-label" id="statusLabel">Idle</span>
+          </div>
+          <p class="status-detail" id="statusDetail">Ready to take orders</p>
+          <div class="order-pill" id="orderPill" style="display:none">
+            <span id="pillDrink">-</span>
+            <span class="pill-sep">/</span>
+            <span id="pillSize">-</span>
+          </div>
+        </div>
+        <button class="btn-order" id="placeOrderBtn" disabled>Place Order</button>
+      </section>
+
+      <!-- Panel 4: Robot Error -->
+      <section class="panel panel-error" id="errorPanel">
+        <h2>Robot Error</h2>
+        <div class="error-body" id="errorBody">
+          <p class="no-error-msg" id="noErrorMsg">No errors detected</p>
+          <div class="error-detail" id="errorDetail" style="display:none">
+            <div class="error-badge" id="errorCode">ERR-000</div>
+            <p class="error-text" id="errorText">Unknown error</p>
+            <p class="error-time" id="errorTime">--:--:--</p>
+          </div>
+        </div>
+        <button class="btn-clear-error" id="clearErrorBtn" disabled>Clear</button>
+        <button class="btn-simulate-error" id="simulateErrorBtn">Simulate Error</button>
+      </section>
+
+    </div>
+
+    <!-- Panel 5: Order Management -->
+    <section class="panel panel-orders" id="ordersPanel">
+      <div class="orders-header">
+        <h2>Order Queue <span class="order-count-badge" id="orderCountBadge" style="display:none">0</span></h2>
+        <button class="btn-clear-done" id="clearDoneBtn" disabled>Clear completed</button>
+      </div>
+      <p class="orders-empty" id="ordersEmpty">No orders yet.</p>
+      <div class="orders-table-wrap" id="ordersTableWrap" style="display:none">
+        <table class="orders-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Drink</th>
+              <th>Size</th>
+              <th>Status</th>
+              <th>Placed</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="ordersBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
