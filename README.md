@@ -1,6 +1,19 @@
-# DeltaX Barista Robot
+# DeltaX Beverage Robot
 
 R&D prototype for an automated beverage dispenser built on the **DeltaX XS D600** delta robot platform. A Flask backend translates drink orders from a browser-based tablet UI into G-Code motion sequences executed over USB serial.
+
+**Stack:** Python · Flask · G-Code · USB serial · HTML/CSS/JavaScript
+
+## Project status
+
+Development prototype with a hardware-free simulation mode. The software connects a browser order interface to recipe orchestration and robot commands. Robot positions remain placeholders pending physical calibration; this repository does not demonstrate a validated autonomous dispensing system yet.
+
+## System workflow
+
+1. A user selects a drink and cup size in the browser.
+2. The Flask API passes the order to the recipe controller.
+3. The controller sequences cup checks, robot motion, ice, and pouring.
+4. Serial drivers communicate with the robot and prototype cup sensor; the UI polls order status.
 
 ---
 
@@ -42,6 +55,8 @@ R&D prototype for an automated beverage dispenser built on the **DeltaX XS D600*
 
 **1. Clone and create virtual environment**
 ```bash
+git clone https://github.com/ThPhong20/Bartender-DeltaxS-Robot.git
+cd Bartender-DeltaxS-Robot
 python -m venv venv
 ```
 
